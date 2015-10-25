@@ -1,0 +1,586 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.2                      
+******************************************************************************
+>> Linked Mon May 04 13:22:48 2015
+
+OUTPUT FILE NAME:   <EchoProcessor.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000b85
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00001913  0003e6ed  R  X
+  SRAM                  20000000   00008000  00007f25  000000db  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00001928   00001928    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  00000270    00000270    00000b9c   00000b9c    r-x .text
+  00000e0c    00000e0c    00000007   00000007    r-- .const
+  00000e14    00000e14    000002d0   000002d0    r-- .constdata
+  000010e4    000010e4    00000164   00000164    r-x i.SysCtlClockGet
+  00001248    00001248    0000013a   0000013a    r-x i.GPIOPadConfigSet
+  00001384    00001384    00000128   00000128    r-x i.SysCtlClockSet
+  000014ac    000014ac    0000009a   0000009a    r-x i.ADCSequenceStepConfigure
+  00001548    00001548    00000064   00000064    r-x i.IntDisable
+  000015ac    000015ac    00000064   00000064    r-x i.IntEnable
+  00001610    00001610    00000060   00000060    r-x i.TimerConfigure
+  00001670    00001670    0000004e   0000004e    r-x i.ADCSequenceConfigure
+  000016c0    000016c0    0000004c   0000004c    r-x i.TimerControlTrigger
+  0000170c    0000170c    0000004a   0000004a    r-x i.SSIConfigSetExpClk
+  00001758    00001758    0000002e   0000002e    r-x .emb_text
+  00001786    00001786    00000028   00000028    r-x i.GPIODirModeSet
+  000017b0    000017b0    00000028   00000028    r-x i.SysCtlPeripheralEnable
+  000017d8    000017d8    00000024   00000024    r-x i.ADCSequenceDataGet
+  000017fc    000017fc    0000001c   0000001c    r-x i.GPIOPinTypeADC
+  00001818    00001818    0000001c   0000001c    r-x i.GPIOPinTypeGPIOOutput
+  00001834    00001834    0000001c   0000001c    r-x i.GPIOPinTypeSSI
+  00001850    00001850    00000012   00000012    r-x i.TimerLoadSet
+  00001862    00001862    00000010   00000010    r-x i.ADCIntDisable
+  00001872    00001872    00000010   00000010    r-x i.ADCIntEnable
+  00001882    00001882    00000010   00000010    r-x i.ADCSequenceDisable
+  00001892    00001892    0000000e   0000000e    r-x i.ADCSequenceEnable
+  000018a0    000018a0    0000000e   0000000e    r-x i.IntMasterEnable
+  000018ae    000018ae    0000000e   0000000e    r-x i.TimerEnable
+  000018bc    000018bc    0000000c   0000000c    r-x i.SSIDataPut
+  000018c8    000018c8    0000000a   0000000a    r-x i.ADCIntClear
+  000018d2    000018d2    0000000a   0000000a    r-x i.SSIEnable
+  000018dc    000018dc    00000008   00000008    r-x i.SSIBusy
+  000018e4    000018e4    00000006   00000006    r-x i.GPIOPinWrite
+  000018f0    000018f0    00000038   00000038    r-- .cinit
+20000000    20000000    00007f28   00000000    rw-
+  20000000    20000000    00007d15   00000000    rw- .data
+  20007d18    20007d18    00000200   00000000    rw- .stack
+  20007f18    20007f18    00000010   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    00000270    00000b9c     
+                  00000270    00000628     main.obj (.text)
+                  00000898    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
+                  00000994    0000009c                                   : memcpy_t2.obj (.text)
+                  00000a30    0000007a                                   : memset_t2.obj (.text)
+                  00000aaa    00000002     --HOLE-- [fill = 0]
+                  00000aac    0000006c                                   : autoinit.obj (.text)
+                  00000b18    0000006a                                   : copy_decompress_rle.obj (.text)
+                  00000b82    00000002     --HOLE-- [fill = 0]
+                  00000b84    00000050                                   : boot.obj (.text)
+                  00000bd4    0000004c                                   : cpy_tbl.obj (.text)
+                  00000c20    00000044                                   : exit.obj (.text)
+                  00000c64    00000044                                   : fd_tou_t2.obj (.text)
+                  00000ca8    00000020                                   : u_tofd_t2.obj (.text)
+                  00000cc8    0000001a     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000ce2    00000002     --HOLE-- [fill = 0]
+                  00000ce4    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00000cfc    00000014                                   : _lock.obj (.text)
+                  00000d10    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00000d1e    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  00000d2a    00000006                                   : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00000d30    00000004                                   : pre_init.obj (.text)
+                  00000d34    00000008     driverlib.lib : adc.o (.tramp.ADCSequenceDataGet.1)
+                  00000d3c    00000008                   : ssi.o (.tramp.SSIBusy.1)
+                  00000d44    00000008                   : ssi.o (.tramp.SSIDataPut.1)
+                  00000d4c    00000008                   : ssi.o (.tramp.SSIEnable.1)
+                  00000d54    00000008                   : ssi.o (.tramp.SSIConfigSetExpClk.1)
+                  00000d5c    00000008                   : gpio.o (.tramp.GPIOPinTypeSSI.1)
+                  00000d64    00000008                   : interrupt.o (.tramp.IntEnable.1)
+                  00000d6c    00000008                   : adc.o (.tramp.ADCIntEnable.1)
+                  00000d74    00000008                   : adc.o (.tramp.ADCIntClear.1)
+                  00000d7c    00000008                   : adc.o (.tramp.ADCSequenceEnable.1)
+                  00000d84    00000008                   : adc.o (.tramp.ADCSequenceStepConfigure.1)
+                  00000d8c    00000008                   : adc.o (.tramp.ADCSequenceConfigure.1)
+                  00000d94    00000008                   : adc.o (.tramp.ADCSequenceDisable.1)
+                  00000d9c    00000008                   : adc.o (.tramp.ADCIntDisable.1)
+                  00000da4    00000008                   : interrupt.o (.tramp.IntDisable.1)
+                  00000dac    00000008                   : gpio.o (.tramp.GPIOPinTypeADC.1)
+                  00000db4    00000008                   : sysctl.o (.tramp.SysCtlDelay.1)
+                  00000dbc    00000008                   : timer.o (.tramp.TimerControlTrigger.1)
+                  00000dc4    00000008                   : timer.o (.tramp.TimerEnable.1)
+                  00000dcc    00000008                   : timer.o (.tramp.TimerLoadSet.1)
+                  00000dd4    00000008                   : sysctl.o (.tramp.SysCtlClockGet.1)
+                  00000ddc    00000008                   : timer.o (.tramp.TimerConfigure.1)
+                  00000de4    00000008                   : sysctl.o (.tramp.SysCtlPeripheralEnable.1)
+                  00000dec    00000008                   : interrupt.o (.tramp.IntMasterEnable.1)
+                  00000df4    00000008                   : gpio.o (.tramp.GPIOPinWrite.1)
+                  00000dfc    00000008                   : gpio.o (.tramp.GPIOPinTypeGPIOOutput.1)
+                  00000e04    00000008                   : sysctl.o (.tramp.SysCtlClockSet.1)
+
+.const     0    00000e0c    00000007     
+                  00000e0c    00000007     main.obj (.const)
+
+.constdata 
+*          0    00000e14    000002d0     
+                  00000e14    000001c4     driverlib.lib : sysctl.o (.constdata)
+                  00000fd8    0000010c                   : interrupt.o (.constdata)
+
+i.SysCtlClockGet 
+*          0    000010e4    00000164     
+                  000010e4    00000164     driverlib.lib : sysctl.o (i.SysCtlClockGet)
+
+i.GPIOPadConfigSet 
+*          0    00001248    0000013a     
+                  00001248    0000013a     driverlib.lib : gpio.o (i.GPIOPadConfigSet)
+
+i.SysCtlClockSet 
+*          0    00001384    00000128     
+                  00001384    00000120     driverlib.lib : sysctl.o (i.SysCtlClockSet)
+                  000014a4    00000008                   : sysctl.o (.tramp.SysCtlDelay.2)
+
+i.ADCSequenceStepConfigure 
+*          0    000014ac    0000009a     
+                  000014ac    0000009a     driverlib.lib : adc.o (i.ADCSequenceStepConfigure)
+
+i.IntDisable 
+*          0    00001548    00000064     
+                  00001548    00000064     driverlib.lib : interrupt.o (i.IntDisable)
+
+i.IntEnable 
+*          0    000015ac    00000064     
+                  000015ac    00000064     driverlib.lib : interrupt.o (i.IntEnable)
+
+i.TimerConfigure 
+*          0    00001610    00000060     
+                  00001610    00000060     driverlib.lib : timer.o (i.TimerConfigure)
+
+i.ADCSequenceConfigure 
+*          0    00001670    0000004e     
+                  00001670    0000004e     driverlib.lib : adc.o (i.ADCSequenceConfigure)
+
+i.TimerControlTrigger 
+*          0    000016c0    0000004c     
+                  000016c0    0000004c     driverlib.lib : timer.o (i.TimerControlTrigger)
+
+i.SSIConfigSetExpClk 
+*          0    0000170c    0000004a     
+                  0000170c    0000004a     driverlib.lib : ssi.o (i.SSIConfigSetExpClk)
+
+.emb_text 
+*          0    00001758    0000002e     
+                  00001758    00000026     driverlib.lib : cpu.o (.emb_text)
+                  0000177e    00000002     --HOLE-- [fill = 0]
+                  00001780    00000006                   : sysctl.o (.emb_text)
+
+i.GPIODirModeSet 
+*          0    00001786    00000028     
+                  00001786    00000028     driverlib.lib : gpio.o (i.GPIODirModeSet)
+
+i.SysCtlPeripheralEnable 
+*          0    000017b0    00000028     
+                  000017b0    00000028     driverlib.lib : sysctl.o (i.SysCtlPeripheralEnable)
+
+i.ADCSequenceDataGet 
+*          0    000017d8    00000024     
+                  000017d8    00000024     driverlib.lib : adc.o (i.ADCSequenceDataGet)
+
+i.GPIOPinTypeADC 
+*          0    000017fc    0000001c     
+                  000017fc    0000001c     driverlib.lib : gpio.o (i.GPIOPinTypeADC)
+
+i.GPIOPinTypeGPIOOutput 
+*          0    00001818    0000001c     
+                  00001818    0000001c     driverlib.lib : gpio.o (i.GPIOPinTypeGPIOOutput)
+
+i.GPIOPinTypeSSI 
+*          0    00001834    0000001c     
+                  00001834    0000001c     driverlib.lib : gpio.o (i.GPIOPinTypeSSI)
+
+i.TimerLoadSet 
+*          0    00001850    00000012     
+                  00001850    00000012     driverlib.lib : timer.o (i.TimerLoadSet)
+
+i.ADCIntDisable 
+*          0    00001862    00000010     
+                  00001862    00000010     driverlib.lib : adc.o (i.ADCIntDisable)
+
+i.ADCIntEnable 
+*          0    00001872    00000010     
+                  00001872    00000010     driverlib.lib : adc.o (i.ADCIntEnable)
+
+i.ADCSequenceDisable 
+*          0    00001882    00000010     
+                  00001882    00000010     driverlib.lib : adc.o (i.ADCSequenceDisable)
+
+i.ADCSequenceEnable 
+*          0    00001892    0000000e     
+                  00001892    0000000e     driverlib.lib : adc.o (i.ADCSequenceEnable)
+
+i.IntMasterEnable 
+*          0    000018a0    0000000e     
+                  000018a0    0000000e     driverlib.lib : interrupt.o (i.IntMasterEnable)
+
+i.TimerEnable 
+*          0    000018ae    0000000e     
+                  000018ae    0000000e     driverlib.lib : timer.o (i.TimerEnable)
+
+i.SSIDataPut 
+*          0    000018bc    0000000c     
+                  000018bc    0000000c     driverlib.lib : ssi.o (i.SSIDataPut)
+
+i.ADCIntClear 
+*          0    000018c8    0000000a     
+                  000018c8    0000000a     driverlib.lib : adc.o (i.ADCIntClear)
+
+i.SSIEnable 
+*          0    000018d2    0000000a     
+                  000018d2    0000000a     driverlib.lib : ssi.o (i.SSIEnable)
+
+i.SSIBusy 
+*          0    000018dc    00000008     
+                  000018dc    00000008     driverlib.lib : ssi.o (i.SSIBusy)
+
+i.GPIOPinWrite 
+*          0    000018e4    00000006     
+                  000018e4    00000006     driverlib.lib : gpio.o (i.GPIOPinWrite)
+
+.cinit     0    000018f0    00000038     
+                  000018f0    00000014     (.cinit..data.load) [load image, compression = rle]
+                  00001904    0000000c     (__TI_handler_table)
+                  00001910    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001918    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000000    00007d15     UNINITIALIZED
+                  20000000    00007d00     main.obj (.data:g_data)
+                  20007d00    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20007d08    00000008                                   : exit.obj (.data)
+                  20007d10    00000004                                   : stkdepth_vars.obj (.data)
+                  20007d14    00000001     main.obj (.data)
+
+.TI.persistent 
+*          0    20000000    00000000     UNINITIALIZED
+
+.stack     0    20007d18    00000200     UNINITIALIZED
+                  20007d18    00000200     --HOLE--
+
+.bss       0    20007f18    00000010     UNINITIALIZED
+                  20007f18    0000000c     (.common:g_block_address)
+                  20007f24    00000004     (.common:g_input_buffer)
+
+.TI.noinit 
+*          0    20007f18    00000000     UNINITIALIZED
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00001918 records: 2, size/record: 8, table size: 16
+	.data: load addr=000018f0, load size=00000014 bytes, run addr=20000000, run size=00007d15 bytes, compression=rle
+	.bss: load addr=00001910, load size=00000008 bytes, run addr=20007f18, run size=00000010 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00001904 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+FAR CALL TRAMPOLINES
+
+callee name               trampoline name
+   callee addr  tramp addr   call addr  call info
+--------------  -----------  ---------  ----------------
+ADCSequenceDataGet        $Tramp$TT$S$$ADCSequenceDataGet
+   000017d9     00000d34     000007c2   main.obj (.text)
+SSIBusy                   $Tramp$TT$S$$SSIBusy
+   000018dd     00000d3c     0000077c   main.obj (.text)
+                             00000790   main.obj (.text)
+SSIDataPut                $Tramp$TT$S$$SSIDataPut
+   000018bd     00000d44     00000770   main.obj (.text)
+SSIEnable                 $Tramp$TT$S$$SSIEnable
+   000018d3     00000d4c     000004dc   main.obj (.text)
+SSIConfigSetExpClk        $Tramp$TT$S$$SSIConfigSetExpClk
+   0000170d     00000d54     000004d0   main.obj (.text)
+GPIOPinTypeSSI            $Tramp$TT$S$$GPIOPinTypeSSI
+   00001835     00000d5c     000004ac   main.obj (.text)
+IntEnable                 $Tramp$TT$S$$IntEnable
+   000015ad     00000d64     00000480   main.obj (.text)
+ADCIntEnable              $Tramp$TT$S$$ADCIntEnable
+   00001873     00000d6c     0000047a   main.obj (.text)
+ADCIntClear               $Tramp$TT$S$$ADCIntClear
+   000018c9     00000d74     0000046c   main.obj (.text)
+                             000007ac   main.obj (.text)
+ADCSequenceEnable         $Tramp$TT$S$$ADCSequenceEnable
+   00001893     00000d7c     0000045e   main.obj (.text)
+ADCSequenceStepConfigure  $Tramp$TT$S$$ADCSequenceStepConfigure
+   000014ad     00000d84     00000450   main.obj (.text)
+ADCSequenceConfigure      $Tramp$TT$S$$ADCSequenceConfigure
+   00001671     00000d8c     0000043e   main.obj (.text)
+ADCSequenceDisable        $Tramp$TT$S$$ADCSequenceDisable
+   00001883     00000d94     0000042c   main.obj (.text)
+ADCIntDisable             $Tramp$TT$S$$ADCIntDisable
+   00001863     00000d9c     0000041e   main.obj (.text)
+IntDisable                $Tramp$TT$S$$IntDisable
+   00001549     00000da4     00000410   main.obj (.text)
+GPIOPinTypeADC            $Tramp$TT$S$$GPIOPinTypeADC
+   000017fd     00000dac     0000040a   main.obj (.text)
+SysCtlDelay               $Tramp$TT$S$$SysCtlDelay
+   00001781     00000db4     000003fc   main.obj (.text)
+TimerControlTrigger       $Tramp$TT$S$$TimerControlTrigger
+   000016c1     00000dbc     000003c8   main.obj (.text)
+TimerEnable               $Tramp$TT$S$$TimerEnable
+   000018af     00000dc4     000003ba   main.obj (.text)
+                             000003d4   main.obj (.text)
+TimerLoadSet              $Tramp$TT$S$$TimerLoadSet
+   00001851     00000dcc     000003ae   main.obj (.text)
+SysCtlClockGet            $Tramp$TT$S$$SysCtlClockGet
+   000010e5     00000dd4     0000039a   main.obj (.text)
+                             000004b0   main.obj (.text)
+TimerConfigure            $Tramp$TT$S$$TimerConfigure
+   00001611     00000ddc     00000396   main.obj (.text)
+SysCtlPeripheralEnable    $Tramp$TT$S$$SysCtlPeripheralEnable
+   000017b1     00000de4     0000038a   main.obj (.text)
+                             000003ea   main.obj (.text)
+                             000003f6   main.obj (.text)
+                             00000496   main.obj (.text)
+                             000004a2   main.obj (.text)
+IntMasterEnable           $Tramp$TT$S$$IntMasterEnable
+   000018a1     00000dec     000002e6   main.obj (.text)
+GPIOPinWrite              $Tramp$TT$S$$GPIOPinWrite
+   000018e5     00000df4     000002da   main.obj (.text)
+                             00000328   main.obj (.text)
+                             00000340   main.obj (.text)
+GPIOPinTypeGPIOOutput     $Tramp$TT$S$$GPIOPinTypeGPIOOutput
+   00001819     00000dfc     000002ca   main.obj (.text)
+SysCtlClockSet            $Tramp$TT$S$$SysCtlClockSet
+   00001385     00000e04     0000027e   main.obj (.text)
+SysCtlDelay               $Tramp$TT$S$$SysCtlDelay
+   00001781     000014a4     0000148e   driverlib.lib : sysctl.o (i.SysCtlClockSet)
+
+[28 trampolines]
+[38 trampoline calls]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                    
+-------   ----                    
+000007a1  ADC0IntHandler          
+000018c9  ADCIntClear             
+00001863  ADCIntDisable           
+00001873  ADCIntEnable            
+00001671  ADCSequenceConfigure    
+000017d9  ADCSequenceDataGet      
+00001883  ADCSequenceDisable      
+00001893  ADCSequenceEnable       
+000014ad  ADCSequenceStepConfigure
+00000c21  C$$EXIT                 
+00001779  CPUbasepriGet           
+00001773  CPUbasepriSet           
+00001759  CPUcpsid                
+00001767  CPUcpsie                
+00001761  CPUprimask              
+0000176f  CPUwfi                  
+000003e1  ConfigureADC0           
+00000489  ConfigureSSI            
+00000381  ConfigureTimer0         
+000007d9  Convert32to16           
+00000e0e  DECAY                   
+00000e10  DELAY_TIME_ms           
+00001787  GPIODirModeSet          
+00001249  GPIOPadConfigSet        
+000017fd  GPIOPinTypeADC          
+00001819  GPIOPinTypeGPIOOutput   
+00001835  GPIOPinTypeSSI          
+000018e5  GPIOPinWrite            
+00000559  GetDelayOutput          
+000006f1  GetMixOutput            
+000007f1  IncBlockAddress         
+000004e9  InitBlockAddress        
+00001549  IntDisable              
+000015ad  IntEnable               
+000018a1  IntMasterEnable         
+00000e12  MIX                     
+00000cc9  ResetISR                
+00000e0c  SAMPLE_RATE_kHz         
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+000018dd  SSIBusy                 
+0000170d  SSIConfigSetExpClk      
+000018bd  SSIDataPut              
+000018d3  SSIEnable               
+00000751  SendSampleToDAC         
+000010e5  SysCtlClockGet          
+00001385  SysCtlClockSet          
+00001781  SysCtlDelay             
+000017b1  SysCtlPeripheralEnable  
+00001611  TimerConfigure          
+000016c1  TimerControlTrigger     
+000018af  TimerEnable             
+00001851  TimerLoadSet            
+20007f18  __STACK_END             
+00000200  __STACK_SIZE            
+20007f18  __STACK_TOP             
+00001918  __TI_CINIT_Base         
+00001928  __TI_CINIT_Limit        
+00001904  __TI_Handler_Table_Base 
+00001910  __TI_Handler_Table_Limit
+00000aad  __TI_auto_init          
+20007d08  __TI_cleanup_ptr        
+00000d11  __TI_decompress_none    
+00000d2b  __TI_decompress_rle24   
+20007d0c  __TI_dtors_ptr          
+00000000  __TI_static_base__      
+00000d1f  __TI_zero_init          
+00000c65  __aeabi_d2uiz           
+00000899  __aeabi_dmul            
+00000a31  __aeabi_memclr          
+00000a31  __aeabi_memclr4         
+00000a31  __aeabi_memclr8         
+00000995  __aeabi_memcpy          
+00000995  __aeabi_memcpy4         
+00000995  __aeabi_memcpy8         
+00000a33  __aeabi_memset          
+00000a33  __aeabi_memset4         
+00000a33  __aeabi_memset8         
+00000ca9  __aeabi_ui2d            
+ffffffff  __binit__               
+ffffffff  __c_args__              
+20007d18  __stack                 
+00000ce5  _args_main              
+00000b85  _c_int00                
+20007d00  _lock                   
+00000d0b  _nop                    
+00000d03  _register_lock          
+00000cfd  _register_unlock        
+00000d31  _system_pre_init        
+20007d04  _unlock                 
+00000c25  abort                   
+ffffffff  binit                   
+00000bd5  copy_in                 
+00000c2d  exit                    
+20007f18  g_block_address         
+20000000  g_data                  
+20007f24  g_input_buffer          
+00000000  g_pfnVectors            
+20007d14  g_sample_complete       
+00000271  main                    
+20007d10  main_func_sp            
+00000995  memcpy                  
+00000a39  memset                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                    
+-------   ----                    
+00000000  __TI_static_base__      
+00000000  g_pfnVectors            
+00000200  __STACK_SIZE            
+00000271  main                    
+00000381  ConfigureTimer0         
+000003e1  ConfigureADC0           
+00000489  ConfigureSSI            
+000004e9  InitBlockAddress        
+00000559  GetDelayOutput          
+000006f1  GetMixOutput            
+00000751  SendSampleToDAC         
+000007a1  ADC0IntHandler          
+000007d9  Convert32to16           
+000007f1  IncBlockAddress         
+00000899  __aeabi_dmul            
+00000995  __aeabi_memcpy          
+00000995  __aeabi_memcpy4         
+00000995  __aeabi_memcpy8         
+00000995  memcpy                  
+00000a31  __aeabi_memclr          
+00000a31  __aeabi_memclr4         
+00000a31  __aeabi_memclr8         
+00000a33  __aeabi_memset          
+00000a33  __aeabi_memset4         
+00000a33  __aeabi_memset8         
+00000a39  memset                  
+00000aad  __TI_auto_init          
+00000b85  _c_int00                
+00000bd5  copy_in                 
+00000c21  C$$EXIT                 
+00000c25  abort                   
+00000c2d  exit                    
+00000c65  __aeabi_d2uiz           
+00000ca9  __aeabi_ui2d            
+00000cc9  ResetISR                
+00000ce5  _args_main              
+00000cfd  _register_unlock        
+00000d03  _register_lock          
+00000d0b  _nop                    
+00000d11  __TI_decompress_none    
+00000d1f  __TI_zero_init          
+00000d2b  __TI_decompress_rle24   
+00000d31  _system_pre_init        
+00000e0c  SAMPLE_RATE_kHz         
+00000e0e  DECAY                   
+00000e10  DELAY_TIME_ms           
+00000e12  MIX                     
+000010e5  SysCtlClockGet          
+00001249  GPIOPadConfigSet        
+00001385  SysCtlClockSet          
+000014ad  ADCSequenceStepConfigure
+00001549  IntDisable              
+000015ad  IntEnable               
+00001611  TimerConfigure          
+00001671  ADCSequenceConfigure    
+000016c1  TimerControlTrigger     
+0000170d  SSIConfigSetExpClk      
+00001759  CPUcpsid                
+00001761  CPUprimask              
+00001767  CPUcpsie                
+0000176f  CPUwfi                  
+00001773  CPUbasepriSet           
+00001779  CPUbasepriGet           
+00001781  SysCtlDelay             
+00001787  GPIODirModeSet          
+000017b1  SysCtlPeripheralEnable  
+000017d9  ADCSequenceDataGet      
+000017fd  GPIOPinTypeADC          
+00001819  GPIOPinTypeGPIOOutput   
+00001835  GPIOPinTypeSSI          
+00001851  TimerLoadSet            
+00001863  ADCIntDisable           
+00001873  ADCIntEnable            
+00001883  ADCSequenceDisable      
+00001893  ADCSequenceEnable       
+000018a1  IntMasterEnable         
+000018af  TimerEnable             
+000018bd  SSIDataPut              
+000018c9  ADCIntClear             
+000018d3  SSIEnable               
+000018dd  SSIBusy                 
+000018e5  GPIOPinWrite            
+00001904  __TI_Handler_Table_Base 
+00001910  __TI_Handler_Table_Limit
+00001918  __TI_CINIT_Base         
+00001928  __TI_CINIT_Limit        
+20000000  g_data                  
+20007d00  _lock                   
+20007d04  _unlock                 
+20007d08  __TI_cleanup_ptr        
+20007d0c  __TI_dtors_ptr          
+20007d10  main_func_sp            
+20007d14  g_sample_complete       
+20007d18  __stack                 
+20007f18  __STACK_END             
+20007f18  __STACK_TOP             
+20007f18  g_block_address         
+20007f24  g_input_buffer          
+ffffffff  __binit__               
+ffffffff  __c_args__              
+ffffffff  binit                   
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+
+[103 symbols]
